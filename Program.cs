@@ -34,3 +34,15 @@ int OddHonest(int[] arrayA, int[] arrayB)
     }
     return indexB;
 }
+
+// основной кодоблок о чётности
+int[] arrA = new int[25];
+int[] arrB = new int[arrA.Length];
+int sizeNewArray = 0;
+FillSourceArray(arrA, 10, 99);
+PrintIntArrToConsole(arrA);
+sizeNewArray = OddHonest(arrA, arrB);
+Console.WriteLine($"SizeOfB={sizeNewArray}");
+PrintIntArrToConsole(arrB);
+Array.Resize(ref arrB, sizeNewArray);   // ресайз/обрезка нового массива
+PrintIntArrToConsole(arrB);
