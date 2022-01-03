@@ -10,3 +10,12 @@ void FillSourceArray(int[] array, int minValue, int maxValue)
         //Console.Write($"i={index}:{array[index]}; ");
     }
 }
+// метод печати массива
+void PrintIntArrToConsole(int[] array)
+{
+    Console.WriteLine("");
+    for (int index = 0; index < array.Length; index++)
+    {
+        Console.Write($"{array[index]}; ");
+    }
+}
