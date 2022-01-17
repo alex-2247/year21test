@@ -1,32 +1,30 @@
-﻿// метод формирования исходного массива. Длину назначим 25 элементов. 
-// Это достаточно много чтоб поиграться, но не слишком, чтоб заипаться.
+﻿// Задача: Написать программу, которая из имеющегося массива целых чисел
+// формирует массив из четных чисел. Первоначальный массив можно ввести с
+// клавиатуры, либо сгенерировать случайным образом. При решении не рекомендуется
+// пользоваться коллекциями, лучше обойтись исключительно массивами.
+
+// метод формирования исходного массива.
 void FillSourceArray(int[] array, int minValue, int maxValue)
 {
     for (int index = 0; index < array.Length; index++)
-    {
         array[index] = new Random().Next(minValue, maxValue);
-        //Console.Write($"i={index}:{array[index]}; ");
-    }
 }
 
 // метод печати массива
 void PrintIntArrToConsole(int[] array)
 {
-    Console.WriteLine("");
     for (int index = 0; index < array.Length; index++)
-    {
         Console.Write($"{array[index]}; ");
-    }
+    Console.WriteLine("");
 }
 
-// метод формирования второго массива чётными элементами
-// Создать на его основе масcив B, отбрасывая те, которые нечётные
+// метод заполнения второго массива чётными элементами
 int OddHonest(int[] arrayA, int[] arrayB)
 {
     int indexB = 0;
     for (int indexA = 0; indexA < arrayA.Length; indexA++)
     {
-        if ((arrayA[indexA] % 2) == 0)    //текущий нечётный
+        if ((arrayA[indexA] % 2) == 0)    //текущий элемент чётный
         {
             arrayB[indexB] = arrayA[indexA];
             indexB++;
@@ -36,13 +34,13 @@ int OddHonest(int[] arrayA, int[] arrayB)
 }
 
 // основной кодоблок о чётности
-int[] arrA = new int[25];
-int[] arrB = new int[arrA.Length];
-int sizeNewArray = 0;
+int sizeArray = 25;
+int[] arrA = new int[sizeArray];
+int[] arrB = new int[sizeArray];
 FillSourceArray(arrA, 10, 99);
 PrintIntArrToConsole(arrA);
-sizeNewArray = OddHonest(arrA, arrB);
-Console.WriteLine($"SizeOfB={sizeNewArray}");
+sizeArray = OddHonest(arrA, arrB);
+Console.WriteLine($"SizeOfB={sizeArray}");
 PrintIntArrToConsole(arrB);
-Array.Resize(ref arrB, sizeNewArray);   // ресайз/обрезка нового массива
+Array.Resize(ref arrB, sizeArray);   // ресайз/обрезка нового массива
 PrintIntArrToConsole(arrB);
